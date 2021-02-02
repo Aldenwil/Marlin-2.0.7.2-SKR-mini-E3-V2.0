@@ -19,6 +19,33 @@ This fork is made for the SKR mini E3 2.0 on an Ender 3 Pro, with BLTouch Mesh B
 * Custom menu for preheating and leveling for different filament types
 * Manual four corner bed leveling
 
+## Recommended starting gcode
+
+```
+; Ender 3 Custom Start G-code
+;*** Start Dual Nozzle/Bed Preheating ***
+M140 S{material_bed_temperature_layer_0} ; start preheating the bed
+M104 S{material_print_temperature_layer_0} ﻿T0 ; start preheating hotend
+G28 ; home
+M190 S{material_bed_temperature_layer_0} ; heat to Cura Bed setting 
+M109 S{material_print_temperature_layer_0} ﻿T0 ; heat to Cura Hotend
+;*** End Preheating ***
+G92 E0 ; Reset Extruder
+G28 ; Home all axes
+M420 S1 ; Load Saved ABL Mesh for BL Touch
+
+G92 E0 ;Reset Extruder
+G1 Z2.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed
+G1 X0.2 Y20 Z0.3 F5000.0 ; Move to start position
+G1 X0.2 Y200.0 Z0.3 F1500.0 E15 ; Draw the first line
+G1 X0.6 Y200.0 Z0.3 F5000.0 ; Move to side a little
+G1 X0.6 Y20 Z0.3 F1500.0 E30 ; Draw the second line
+G92 E0 ; Reset Extruder
+G1 Z2.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed
+G1 X5 Y20 Z0.3 F5000.0 ; Move over to prevent blob squish
+```
+
+
 ## Marlin 2.0
 
 Marlin 2.0 takes this popular RepRap firmware to the next level by adding support for much faster 32-bit and ARM-based boards while improving support for 8-bit AVR boards. Read about Marlin's decision to use a "Hardware Abstraction Layer" below.
