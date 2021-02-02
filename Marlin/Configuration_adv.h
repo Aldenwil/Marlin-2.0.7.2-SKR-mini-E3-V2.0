@@ -3229,7 +3229,7 @@
   #define GCODE_MACROS_SLOT_SIZE  50  // Maximum length of a single macro
 #endif
 
-/**
+/***
  * User-defined menu items that execute custom GCode
  */
 #define CUSTOM_USER_MENUS
