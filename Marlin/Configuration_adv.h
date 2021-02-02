@@ -3248,11 +3248,11 @@
   #define USER_DESC_2 "Preheat for " PREHEAT_2_LABEL
   #define USER_GCODE_2 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
 
-  #define USER_DESC_3 "Preheat for " PREHEAT_1_LABEL " and level bed"
-  #define USER_GCODE_3 "M140 S" STRINGIFY(PREHEAT_1_TEMP_BED) "\nG28\nG29"
+  #define USER_DESC_3 "Pht for " PREHEAT_1_LABEL " & ABL"
+  #define USER_GCODE_3 "M190 S" STRINGIFY(PREHEAT_1_TEMP_BED) "\nG28\nG29"
 
-  #define USER_DESC_4 "Preheat for " PREHEAT_2_LABEL " and level bed"
-  #define USER_GCODE_4 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
+  #define USER_DESC_4 "Pht for " PREHEAT_2_LABEL " & ABL"
+  #define USER_GCODE_4 "M190 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
 #endif
 
 /**
